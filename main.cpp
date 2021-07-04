@@ -43,10 +43,30 @@ void December2020();
 void January2021();
 void February2021();
 void March2021();
+void April2021();
+void May2021();
+void June2021();
+void March_2020();
+void April_2020();
+void May_2020();
+void June_2020();
+void July_2020();
+void August_2020();
+void September_2020();
+void October_2020();
+void November_2020();
+void December_2020();
+void January_2021();
+void February_2021();
+void March_2021();
+void April_2021();
+void May_2021();
+void June_2021();
 void National();
 void International();
 void Hospital_Information();
 void Request();
+void variants_list();
 int main();
 int barl = 20;
 int P=1;
@@ -111,31 +131,44 @@ void main_menu()
     system("cls");
     system("COLOR  40");
     int w;
-    printf("\n\n\n\n\n\t\t\t\t ************************************************************\n");
-    printf("\n\t\t\t\t\t\t\t 1.Continents\n");
-    printf("\n\t\t\t\t\t\t\t 2.Countryview\n");
-    printf("\n\t\t\t\t\t\t\t 3.Admin\n");
-    printf("\n\t\t\t\t\t\t\t 4.Request\n\n");
-    printf("\n\n\t\t\t\t ************************************************************\n");
-    printf("\n\t\t\t\t\t\t\t Enter your choice : ");
+    cout<<"\n\n\n\n\t\t\t\t\t\t    ==================="<<endl;
+    cout<<"\t\t\t\t\t\t    ||   Main menu   ||"<<endl;
+    cout<<"\t\t\t\t\t\t    ==================="<<endl;
+    cout<<"\n\t\t\t\t ************************************************************\n";
+    cout<<"\n\t\t\t\t\t\t 1.Record of Continents\n";
+    cout<<"\n\t\t\t\t\t\t 2.Record of Countryview\n";
+    cout<<"\n\t\t\t\t\t\t 3.COVID-19 variants list\n";
+    cout<<"\n\t\t\t\t\t\t 4.Admin Penel\n";
+    cout<<"\n\t\t\t\t\t\t 5.Request Option\n";
+    cout<<"\n\t\t\t\t ************************************************************\n";
+    cout<<"\n\t\t\t\t\t\t\t Enter your choice : ";
     scanf("%d",&w);
     switch(w)
     {
     case 1:
     {
         continents();
+        break;
     }
     case 2:
     {
         countryview();
+        break;
     }
     case 3:
     {
-        Admin();
+        variants_list();
+        break;
     }
     case 4:
     {
+        Admin();
+        break;
+    }
+    case 5:
+    {
         Request();
+        break;
     }
     default :
     {
@@ -145,23 +178,48 @@ void main_menu()
 
     }
 }
+
+void variants_list()
+{
+
+    system ("cls");
+    system("COLOR  5F");
+    int n;
+    std :: string line_;
+    ifstream file_("E:\\kona\\project\\Final\\COVID_Variants.TXT");
+    while(getline(file_,line_))
+    {
+        std :: cout <<line_<<'\n';
+    }
+    file_.close();
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back main menu    |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    main_menu();
+}
+
 void show()
 {
     int n;
     cin >> n;
     switch(n)
     {
+    case 0:
+    {
+        exit(0);
+        break;
+    }
     case 1:
     {
-        Hospital_Information();
+        admin_Covid_Record();
+        break;
     }
     case 2:
     {
-        admin_Covid_Record();
-    }
-    case 3:
-    {
         main_menu();
+        break;
     }
     default:
     {
@@ -174,10 +232,10 @@ void change()
 {
     system("COLOR  40");
     system("color 0D");
-    cout << "\n\n\n\n\t\t\t\t\t****** What you want change ?? ******\n";
-    cout << "\n\n\n\t\t\t\t\t\t 1. Hospital information.\n";
-    cout << "\n\t\t\t\t\t\t 2.Covid Record.\n";
-    cout << "\n\t\t\t\t\t\t 3.Log Out !!.\n";
+    cout << "\n\n\n\n\t\t\t\t\t****** Change penel ******\n";
+    cout << "\n\t\t\t\t\t\t 1.Covid Record.\n";
+    cout << "\n\t\t\t\t\t\t 2.Back to Main menu.\n";
+    cout << "\n\t\t\t\t\t\t 0.Log Out !!.\n";
     cout << "\n\n\n\n\n\t\t\t\t\t Enter Your Choice: ";
     show();
 }
@@ -187,7 +245,7 @@ void admin2()
     int n;
     string a,b,c;
     cout<<"\n\n\n\n\n\t\t\t\t\t\tPress '1' to go notification."<<endl;
-    cout<<"\n\t\t\t\t\t\tpress '2' for change data."<<endl;
+    cout<<"\n\t\t\t\t\t\tPress '2' for change data."<<endl;
     cout<<"\n\t\t\t\t\t\tEnter Choice : ";
     cin>>n;
     switch(n)
@@ -225,8 +283,6 @@ void admin2()
 
     }
     }
-
-
 }
 void Admin()
 {
@@ -236,20 +292,14 @@ void Admin()
     string u,p,s;
     char user[10],ch;
     int i;
-    cout<<"\n\n\t\t\t\t\tEnter your username : ";
-    for(i = 0; i < 100; i++)
-    {
-        ch = getch();
-        if(ch == 13)
-            break;
-        user[i] = ch;
-        ch = '*' ;
-        printf("%c", ch);
-    }
-    user[i] = '\0';
+    cout<<"\n\n\t\t\t\t\t     ==================="<<endl;
+    cout<<"\t\t\t\t\t     ||  Admin Penel  ||"<<endl;
+    cout<<"\t\t\t\t\t     ==================="<<endl;
+    cout<<"\n\n\t\t\t\t\tEnter your username    : ";
+    cin>>user;
     char pass[10],pa;
     int j;
-    cout<<"\n\n\t\t\t\t\tEnter your password : ";
+    cout<<"\t\t\t\t\tEnter your password    : ";
     for(j = 0; j < 100; j++)
     {
         pa = getch();
@@ -260,7 +310,7 @@ void Admin()
         printf("%c", pa);
     }
     pass[j] = '\0';
-    cout<<"\n\n\t\t\t\t\tEnter your unique code : ";
+    cout<<"\n\t\t\t\t\tEnter your unique code : ";
     char uniq[10],un;
     int k;
     for(k = 0; k < 100; k++)
@@ -307,36 +357,38 @@ void Admin()
 void Request()
 {
     system("cls");
-    char country[1000], data[10001];
+    char month[1000], data[10001], type[10001];
 
     ofstream myfile;
     myfile.open("Request.txt",ios :: app);
     cout << "\n\n\n\n\t\t\t\t\t********** Write your information **********";
-    cout << "\n\n\n\n\n\t\t\tEnter name : ";
-    cin>>country;
-    myfile<<country<<endl;
-    fflush(stdin);
-    getchar();
-    cout<<"\n\n\t\t\tEnter information : ";
-    cin.getline(data,100);
+    cout << "\n\n\n\n\n\t\t\tEnter month name : ";
+    cin>>month;
+    myfile<<month<<endl;
+    cout<<"\n\n\t\t\tEnter type name : ";
+    cin>>type;
+   // cin.getline(data,100);
+    myfile<<type<<endl;
+    cout<<"\n\n\t\t\tEnter data : ";
+    cin>>data;
+   // cin.getline(data,100);
     myfile<<data<<endl;
-
-    fflush(stdin);
-    getchar();
     system("cls");
     myfile.close();
 
     cout<<"\n\n\n\n\n\n\t\t\t\t\tThankyou,Our administration will review it !!"<<endl;
-    fflush(stdin);
-    getchar();
+    system("pause");
     request2();
 
 }
 void request2()
 {
+    system("cls");
     int n;
     cout << "\n\n\n\n\t\t\t\tBack to Main menu press 1: \n";
     cout << "\n\t\t\t\tBack to Continents press 2: \n";
+    cout << "\n\t\t\t\tExit press 0: \n";
+
     cout << "\n\t\t\t\tPress key: ";
     scanf("%d", &n);
     if(n==1)
@@ -352,6 +404,10 @@ void request2()
         continents();
         fflush(stdin);
         getchar();
+    }
+    else if(n==0)
+    {
+        exit(0);
     }
     else
     {
@@ -377,43 +433,64 @@ void continents()
     cout << "\n\t\t\t\t\t\t 6.Australia\n";
     cout << "\n\t\t\t\t\t\t 7.Antartica\n";
     //cout << "\n\n\t\t\t\t----------------------------------------------------------\n";
-    cout << "\n\t\t\t\t\t\t 8.Back to Main menu:\n\n";
+    cout << "\n\t\t\t\t\t\t 8.Back to Main menu:\n";
+    cout << "\n\t\t\t\t\t\t Exit press 0: \n";
+
     cout << "\n\t\t\t\t\t\tEnter your choice: ";
     scanf("%d",&p);
     switch(p)
     {
+    case 0:
+    {
+        exit(0);
+    }
     case 1:
     {
         Asia ();
+        break;
     }
     case 2:
     {
         Africa ();
+        break;
+
     }
     case 3:
     {
         Europe();
+        break;
+
     }
     case 4:
     {
         North_America();
+        break;
+
     }
     case 5:
     {
         South_America ();
+        break;
+
     }
     case 6:
     {
         Australia();
+        break;
+
     }
 
     case 7:
     {
         Antartica();
+        break;
+
     }
     case 8:
     {
         main_menu();
+        break;
+
     }
     default:
     {
@@ -538,16 +615,24 @@ void countryview()
     system ("cls");
     int s;
     system("COLOR  2F");
-    cout<<"\n\n\n\n\t\t\t\t\----------------------------------------------------------\n";
-    cout<<"\n\n\t\t\t\t\t\t\t 1.National\n";
+    cout<<"\n\n\n\n\n\t\t\t\t\t\t\t============"<<endl;
+    cout<<"\t\t\t\t\t\t\t| Category |"<<endl;
+    cout<<"\t\t\t\t\t\t\t============"<<endl;
+    cout<<"\t\t\t\t----------------------------------------------------------\n";
+    cout<<"\n\t\t\t\t\t\t\t 1.National\n";
     cout<<"\n\t\t\t\t\t\t\t 2.International\n";
-    cout<<"\n\t\t\t\t\t\t\t 3.Main menu\n\n";
-    cout<<"\n\t\t\t\t\----------------------------------------------------------\n";
-    cout <<"\n\n\n\t\t\t\t\tEnter your choice: ";
+    cout<<"\n\t\t\t\t\t\t\t 3.Main menu\n";
+    cout<<"\n\t\t\t\t\t\t\t Exit press 0: ";
+    cout<<"\n\n\t\t\t\t----------------------------------------------------------\n";
+    cout <<"\n\t\t\t\t\t\t\tEnter your choice: ";
     scanf("%d",&s);
     system("cls");
     switch(s)
     {
+    case 0:
+    {
+        exit(0);
+    }
     case 1:
     {
         National();
@@ -581,16 +666,31 @@ void countryview()
 void National()
 {
     system("cls");
-    cout<< "\n\n\n\n\n\t\t\t\t\t ***** What you want to see???? *****\n";
-    cout<< "\n\n\n\t\t\t\t\t\t 1.Hospital Information.\n";
-    cout<< "\n\t\t\t\t\t\t 2.Covid Record.\n";
-    cout<< "\n\t\t\t\t\t\t 3.Back to Country view.\n";
-    cout<< "\n\t\t\t\t\t\t 4.Back to Main menu.";
-    cout<< "\n\n\n\n\t\t\t\t\tEnter your choice: ";
+    cout<< "\n\n\t\t\t\t\t       ................................\n";
+    cout<< "\t\t\t\t\t       |  National Information Penel  | \n";
+    cout<< "\t\t\t\t\t       ................................\n";
+    cout<< "\n\n\n\n\t\t\t\t\t   ***** What you want to see???? *****\n\n";
+    cout<< "\t\t\t\t\t\t____________________________\n";
+    cout<< "\t\t\t\t\t\t| 1 | Hospital Information. |\n";
+    cout<< "\t\t\t\t\t\t|___|_______________________|\n";
+    cout<< "\t\t\t\t\t\t| 2 | Covid Record.         |\n";
+    cout<< "\t\t\t\t\t\t|___|_______________________|\n";
+    cout<< "\t\t\t\t\t\t| 3 | Back to Country view. |\n";
+    cout<< "\t\t\t\t\t\t|___|_______________________|\n";
+    cout<< "\t\t\t\t\t\t| 4 | Back to Main menu.    |\n";
+    cout<< "\t\t\t\t\t\t|___|_______________________|\n";
+    cout<< "\t\t\t\t\t\t|       Exit press 0.       |\n";
+    cout<< "\t\t\t\t\t\t|___________________________|\n";
+    cout<< "\n\n\t\t\t\t\tEnter your choice: ";
     int k;
     scanf("%d",&k);
     switch(k)
     {
+    case 0:
+    {
+        exit(0);
+        break;
+    }
     case 1:
     {
         Hospital_Information();
@@ -672,12 +772,18 @@ void International()
 
 void  Hospital_Information()
 {
-    system("cls");
-    cout << "\n\n\n\n\n\t\t\t\tHospital Information:---"<<endl;
-    cout<<endl;
+    system ("cls");
+    system("COLOR  5F");
     int n;
+    /*std :: string line_;
+    ifstream file_("E:\\kona\\project\\Final\\Countryview\\Hospital_Information.TXT");
+    while(getline(file_,line_))
+    {
+        std :: cout <<line_<<'\n';
+    }
+    file_.close();*/
     FILE *fp;
-    fp = fopen("Hospital_Information.TXT","r");
+    fp = fopen("E:\\kona\\project\\Final\\Countryview\\Hospital_Information.TXT","r");
 
     char ch[1000001];
     while(fgets(ch,sizeof(ch),fp))
@@ -685,22 +791,22 @@ void  Hospital_Information()
         printf("%s",ch);
     }
     fclose(fp);
-    printf("\n\n\n\t\t\t\t\t\tBack to Main menu press 1: \n");
-    printf("\n\t\t\t\t\t\tGo to Covid Record press 2: \n");
-    printf("\n\n\n\t\t\t\t\t\tEnter Choise : ");
+    cout<<"\n\t\t\t\t\t\tBack to National press 1: \n";
+    cout<<"\n\t\t\t\t\t\tGo to Catagory press 2: \n";
+    cout<<"\n\t\t\t\t\t\tEnter Choice : ";
     scanf("%d", &n);
     switch(n)
     {
     case 1:
     {
-        main_menu();
+        National();
         fflush(stdin);
         getchar();
         break;
     }
     case 2:
     {
-        Covid_Record();
+        countryview();
         fflush(stdin);
         getchar();
         break;
@@ -722,82 +828,152 @@ void Covid_Record()
     system ("cls");
     int choice;
     system("COLOR 5F");
-    printf("\n\n\t\t**********Month Name**********\n");
-    printf("\n\n\t\t     1.March2020\n");
-    printf("\t\t     2.April2020\n");
-    printf("\t\t     3.May2020\n");
-    printf("\t\t     4.June2020\n");
-    printf("\t\t     5.July2020\n");
-    printf("\t\t     6.August2020\n");
-    printf("\t\t     7.September2020\n");
-    printf("\t\t     8.October2020\n");
-    printf("\t\t     9.November2020\n");
-    printf("\t\t     10.December2020\n");
-    printf("\t\t     11.January2021\n");
-    printf("\t\t     12.February2021\n");
-    printf("\t\t     13.March2021\n");
-    printf("\t\t     14.Back to National\n");
+    cout<< "\n\n\t\t\t\t\t        **********Month Name**********\n";
+    cout<< "\n\t\t\t\t\t\t ______________________________\n";
+    cout<< "\t\t\t\t\t\t| 1  |     March2020           |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 2  |     April2020           |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 3  |     May2020             |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 4  |     June2020            |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 5  |     July2020            |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 6  |     August2020          |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 7  |     September2020       |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 8  |     October2020         |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 9  |     November2020        |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 10 |     December2020        |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 11 |     January2021         |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 12 |     February2021        |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 13 |     March2021           |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 14 |     April2021           |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 15 |     May2021             |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 16 |     June2021            |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t| 17 |     Back to National    |\n";
+    cout<< "\t\t\t\t\t\t|____|_________________________|\n";
+    cout<< "\t\t\t\t\t\t|        Exit press 0.         |\n";
+    cout<< "\t\t\t\t\t\t|______________________________|\n";
 
-    printf("\n\t\t Enter Your Choice: ");
+    printf("\n\t\t\t\t\t\t Enter Your Choice: ");
     scanf("%d", &choice);
     switch(choice)
     {
+    case 0:
+    {
+        exit(0);
+        break;
+
+    }
     case 1:
     {
         March2020();
+        break;
+
     }
     case 2:
     {
         April2020();
+        break;
     }
     case 3:
     {
         May2020();
+        break;
+
+
     }
     case 4:
     {
         June2020();
+        break;
+
     }
     case 5:
     {
         July2020();
+        break;
+
     }
     case 6:
     {
         August2020();
+        break;
+
     }
     case 7:
     {
         September2020();
+        break;
+
     }
     case 8:
     {
         October2020();
+        break;
+
     }
     case 9:
     {
         November2020();
+        break;
+
     }
     case 10:
     {
         December2020();
+        break;
+
     }
     case 11:
     {
         January2021();
+        break;
     }
     case 12:
     {
         February2021();
+        break;
     }
     case 13:
     {
         March2021();
+        break;
     }
     case 14:
     {
+        April2021();
+        break;
 
+    }
+    case 15:
+    {
+        May2021();
+        break;
+
+    }
+    case 16:
+    {
+        June2021();
+        break;
+
+    }
+    case 17:
+    {
         National();
+        break;
     }
 
 
@@ -819,85 +995,143 @@ void admin_Covid_Record()
     system ("cls");
     int choice;
     system("COLOR 5F");
-    printf("\n\n\t\t**********Month Name**********\n");
-    printf("\n\n\t\t     1.March2020\n");
-    printf("\t\t     2.April2020\n");
-    printf("\t\t     3.May2020\n");
-    printf("\t\t     4.June2020\n");
-    printf("\t\t     5.July2020\n");
-    printf("\t\t     6.August2020\n");
-    printf("\t\t     7.September2020\n");
-    printf("\t\t     8.October2020\n");
-    printf("\t\t     9.November2020\n");
-    printf("\t\t     10.December2020\n");
-    printf("\t\t     11.January2021\n");
-    printf("\t\t     12.February2021\n");
-    printf("\t\t     13.March2021\n");
-    printf("\t\t     14.Back to changing type.\n");
-
-    printf("\n\t\t Enter Your Choice: ");
+    cout<<"\n\n\t\t\t\t\t\t\t====================\n";
+    cout<<"\t\t\t\t\t\t\t||   Admin Penel  ||\n";
+    cout<<"\t\t\t\t\t\t\t====================\n";
+    cout<< "\n\n\t\t\t\t\t          **********Month List**********\n";
+    cout<< "\n\t\t\t\t\t\t __________________________________\n";
+    cout<< "\t\t\t\t\t\t| 1  |     March2020               |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 2  |     April2020               |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 3  |     May2020                 |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 4  |     June2020                |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 5  |     July2020                |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 6  |     August2020              |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 7  |     September2020           |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 8  |     October2020             |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 9  |     November2020            |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 10 |     December2020            |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 11 |     January2021             |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 12 |     February2021            |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 13 |     March2021               |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 14 |     April2021               |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 15 |     May2021                 |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 16 |     June2021                |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t| 17 |     Back to Change penel    |\n";
+    cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
+    cout<< "\t\t\t\t\t\t|        Exit press 0.             |\n";
+    cout<< "\t\t\t\t\t\t|__________________________________|\n";
+    cout<<"\n\t\t\t\t\t\t Enter Your Choice: ";
     scanf("%d", &choice);
     switch(choice)
     {
     case 1:
     {
-        March2020();
+        March_2020();
+        break;
     }
     case 2:
     {
-        April2020();
+        April_2020();
+        break;
     }
     case 3:
     {
-        May2020();
+        May_2020();
+        break;
     }
     case 4:
     {
-        June2020();
+        June_2020();
+        break;
     }
     case 5:
     {
-        July2020();
+        July_2020();
+        break;
     }
     case 6:
     {
-        August2020();
+        August_2020();
+        break;
     }
     case 7:
     {
-        September2020();
+        September_2020();
+        break;
     }
     case 8:
     {
-        October2020();
+        October_2020();
+        break;
     }
     case 9:
     {
-        November2020();
+        November_2020();
+        break;
     }
     case 10:
     {
-        December2020();
+        December_2020();
+        break;
+
     }
     case 11:
     {
-        January2021();
+        January_2021();
+        break;
+
     }
     case 12:
     {
-        February2021();
+        February_2021();
+        break;
     }
     case 13:
     {
-        March2021();
+        March_2021();
+        break;
     }
     case 14:
     {
-        system("cls");
-        change();
+        April2021();
+        break;
+
+    }
+    case 15:
+    {
+        May2021();
+        break;
+
+    }
+    case 16:
+    {
+        June2021();
+        break;
+
     }
 
-
+    case 17:
+    {
+        system("cls");
+        change();
+        break;
+    }
     default:
     {
         printf("\n\n\t\t Your choice is wrong! \n\t\t Try again.....\n");
@@ -910,6 +1144,881 @@ void admin_Covid_Record()
     }
 }
 
+void March_2020()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\March2020.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\March2020.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\March2020.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+
+}
+void April_2020()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\April2020.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl
+        <<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\April2020.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\April2020.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+}
+void May_2020()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\May2020.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl
+        <<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\May2020.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\May2020.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+
+}
+void June_2020()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\June2020.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl
+        <<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\June2020.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\June2020.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+
+}
+void July_2020()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\July2020.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\July2020.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\July2020.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+
+}
+void August_2020()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\August2020.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\August2020.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\August2020.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+
+}
+void September_2020()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\September2020.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\September2020.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\September2020.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+}
+void October_2020()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\October2020.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\October2020.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\October2020.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+}
+void November_2020()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\November2020.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\November2020.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\November2020.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+}
+void December_2020()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\December2020.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\December2020.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\December2020.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+}
+void January_2021()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\January2021.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\January2021.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\January2021.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+}
+void February_2021()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\February2021.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\February2021.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\February2021.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+}
+void March_2021()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\March2021.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\March2021.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\March2021.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+}
+
+void April_2021()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\April2021.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\April2021.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\April2021.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+}
+void May_2021()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\May2021.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\May2021.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\May2021.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+
+}
+void June_2021()
+{
+    system("cls");
+    int n;
+    string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
+    fstream file;
+    file.open("E:\\kona\\project\\Final\\Countryview\\June2021.TXT",ios::in);
+    getline(file,line1);
+    getline(file,line2);
+    getline(file,line3);
+    getline(file,line4);
+    getline(file,line5);
+    getline(file,line6);
+    getline(file,line7);
+    getline(file,line8);
+    getline(file,line9);
+    getline(file,line10);
+    getline(file,line11);
+    file.close();
+    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    cout<<"enter the line you want to change: ";
+    cin>>n;
+    cin.ignore();
+    if(n==1)
+    {
+        getline(cin,line3);
+    }
+    if(n==2)
+    {
+        getline(cin,line7);
+    }
+    if(n==3)
+    {
+        getline(cin,line11);
+    }
+    ofstream file2;
+    file2.open("E:\\kona\\project\\Final\\June2021.TXT");
+    file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
+    file2.close();
+    cout<<endl<<endl;
+    string name;
+    ifstream read("E:\\kona\\project\\Final\\June2021.TXT");
+    while(getline(read,name))
+    {
+        cout<<name<<endl;
+    }
+    cout<< "\n\t\t\t\t\t\t ____________________________________\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back month list   |\n";
+    cout<< "\t\t\t\t\t\t|____________________________________|\n";
+    fflush(stdin);
+    getchar();
+    read.close();
+    admin_Covid_Record();
+}
+
 void color()
 {
     system ("cls");
@@ -918,27 +2027,35 @@ void color()
 void March2020()
 {
     color();
-    std :: string line_;
-    ifstream file_("March2020.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\March2020.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\t\t\t\t\t\t-------------------------"<<endl;
+        cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"\t\t\t\t\t\t-------------------------"<<endl;
+        cout<<"\t\t\t\t\t\t"<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"\t\t\t\t\t\t-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
-
     rtrn();
 }
 void April2020()
 {
     color();
-    std :: string line_;
-    ifstream file_("April2020.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\April2020.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
-
     rtrn();
 
 }
@@ -946,150 +2063,250 @@ void April2020()
 void May2020()
 {
     color();
-    std :: string line_;
-    ifstream file_("May2020.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\May2020.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
 
     rtrn();
 }
 void June2020()
 {
     color();
-    std :: string line_;
-    ifstream file_("June2020.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\June2020.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
-
     rtrn();
 }
 void July2020()
 {
     color();
-    std :: string line_;
-    ifstream file_("July2020.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\July2020.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
-
     rtrn();
 }
 void August2020()
 {
     color();
-    std :: string line_;
-    ifstream file_("August2020.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\August2020.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
 
     rtrn();
 }
 void September2020()
 {
     color();
-    std :: string line_;
-    ifstream file_("September2020.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\September2020.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
 
     rtrn();
 }
 void October2020()
 {
     color();
-    std :: string line_;
-    ifstream file_("October2020.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\October2020.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
 
     rtrn();
 }
 void November2020()
 {
     color();
-    std :: string line_;
-    ifstream file_("November2020.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\November2020.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
-
     rtrn();
 }
 void December2020()
 {
     color();
-    std :: string line_;
-    ifstream file_("December2020.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\December2020.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
-
     rtrn();
 }
 void January2021()
 {
     color();
-    std :: string line_;
-    ifstream file_("January2021.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\January2021.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
-
     rtrn();
 }
 void February2021()
 {
     color();
-    std :: string line_;
-    ifstream file_("February2021.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\February2021.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
 
     rtrn();
 }
 void March2021()
 {
     color();
-    std :: string line_;
-    ifstream file_("March2021.txt");
-    while(getline(file_,line_))
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\March2021.TXT");
+    while(file>>a1>>a2>>b1>>c1)
     {
-        std :: cout <<line_<<'\n';
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
     }
-    file_.close();
-
+    rtrn();
+}
+void April2021()
+{
+    color();
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\April2021.TXT");
+    while(file>>a1>>a2>>b1>>c1)
+    {
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
+    }
+    rtrn();
+}
+void May2021()
+{
+    color();
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\May2021.TXT");
+    while(file>>a1>>a2>>b1>>c1)
+    {
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
+    }
+    rtrn();
+}
+void June2021()
+{
+    color();
+    char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
+    fstream file("E:\\kona\\project\\Final\\Countryview\\June2021.TXT");
+    while(file>>a1>>a2>>b1>>c1)
+    {
+        cout<<a1<<"."<<a2<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"-------------------------"<<endl;
+        cout<<endl;
+    }
     rtrn();
 }
 void rtrn()
 {
     cout<< "\n\n\n\t\t\t\tBack to month list press ' 1 '\n";
-    cout<< "\t\t\t\tBack to Countryview press ' 2 '\n";
+    cout<< "\t\t\t\tBack to Catagory press ' 2 '\n";
     cout<< "\t\t\t\tPress key: ";
     int n;
     cin>>n;
