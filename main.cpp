@@ -138,8 +138,8 @@ void main_menu()
     cout<<"\n\t\t\t\t\t\t 1.Record of Continents\n";
     cout<<"\n\t\t\t\t\t\t 2.Record of Countryview\n";
     cout<<"\n\t\t\t\t\t\t 3.COVID-19 variants list\n";
-    cout<<"\n\t\t\t\t\t\t 4.Admin Penel\n";
-    cout<<"\n\t\t\t\t\t\t 5.Request Option\n";
+    cout<<"\n\t\t\t\t\t\t 4.Admin Panel\n";
+    cout<<"\n\t\t\t\t\t\t 5.Suggestion Panel\n";
     cout<<"\n\t\t\t\t ************************************************************\n";
     cout<<"\n\t\t\t\t\t\t Enter your choice : ";
     scanf("%d",&w);
@@ -498,7 +498,7 @@ void continents()
 void Asia()
 {
     system ("cls");
-    system("color 60");
+    system("color 20");
     int n;
 
     std :: string line_;
@@ -528,7 +528,7 @@ void Africa()
 void Europe()
 {
     system ("cls");
-    system("COLOR  5F");
+    system("COLOR  30");
     int n;
 
     std :: string line_;
@@ -544,7 +544,7 @@ void Europe()
 void North_America()
 {
     system ("cls");
-    system("COLOR  5F");
+    system("COLOR  B0");
     int n;
     std :: string line_;
     ifstream file_("E:\\kona\\project\\Final\\Continent\\North_America.txt");
@@ -559,7 +559,7 @@ void North_America()
 void South_America()
 {
     system ("cls");
-    system("COLOR  50");
+    system("COLOR  30");
     int n;
     std :: string line_;
     ifstream file_("E:\\kona\\project\\Final\\Continent\\South_America.txt");
@@ -710,7 +710,7 @@ void International()
     int n;
 
     std :: string line_;
-    ifstream file_("International.txt");
+    ifstream file_("E:\\kona\\project\\Final\\Countryview\\International.txt");
     while(getline(file_,line_))
     {
         std :: cout <<line_<<'\n';
@@ -718,7 +718,7 @@ void International()
     file_.close();
 
     cout << "\n\n\n\t\t\t\tBack to Main menu press 1: \n";
-    cout << "\t\t\t\tBack to Country view press 2: \n";
+    cout << "\t\t\t\tBack to Category press 2: \n";
     cout << "\t\t\t\tPress key: ";
     scanf("%d", &n);
     switch(n)
@@ -753,13 +753,6 @@ void  Hospital_Information()
     system ("cls");
     system("COLOR  5F");
     int n;
-    /*std :: string line_;
-    ifstream file_("E:\\kona\\project\\Final\\Countryview\\Hospital_Information.TXT");
-    while(getline(file_,line_))
-    {
-        std :: cout <<line_<<'\n';
-    }
-    file_.close();*/
     FILE *fp;
     fp = fopen("E:\\kona\\project\\Final\\Countryview\\Hospital_Information.txt","r");
 
@@ -2003,9 +1996,11 @@ void March2020()
     system("color 30");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\March2020.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- March2020 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2021,9 +2016,12 @@ void April2020()
     system("color B0");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\April2020.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- April2020 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
+
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2038,12 +2036,14 @@ void April2020()
 void May2020()
 {
      system ("cls");
-    system("color B0");
+    system("color 50");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\May2020.TXT");
+    cout<< "\n\n\t\t\t\t\t\t--------- May2020 ---------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2057,12 +2057,14 @@ void May2020()
 void June2020()
 {
      system ("cls");
-    system("color B0");
+    system("color 60");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\June2020.TXT");
+    cout<< "\n\n\t\t\t\t\t\t--------- June2020 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2075,12 +2077,14 @@ void June2020()
 void July2020()
 {
      system ("cls");
-    system("color B0");
+    system("color 70");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\July2020.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- July2020 ---------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2093,12 +2097,14 @@ void July2020()
 void August2020()
 {
     system ("cls");
-    system("color B0");
+    system("color C0");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\August2020.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- August2020 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2112,12 +2118,14 @@ void August2020()
 void September2020()
 {
      system ("cls");
-    system("color B0");
+    system("color 60");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\September2020.TXT");
+    cout<< "\n\n\t\t\t\t\t\t------ September2020 ------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2131,12 +2139,14 @@ void September2020()
 void October2020()
 {
      system ("cls");
-    system("color B0");
+    system("color E0");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\October2020.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- October2020 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2150,12 +2160,14 @@ void October2020()
 void November2020()
 {
      system ("cls");
-    system("color B0");
+    system("color 90");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\November2020.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- November2020 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2168,12 +2180,14 @@ void November2020()
 void December2020()
 {
     system ("cls");
-    system("color B0");
+    system("color 03");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\December2020.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- December2020 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2186,12 +2200,14 @@ void December2020()
 void January2021()
 {
      system ("cls");
-    system("color B0");
+    system("color 04");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\January2021.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- January2021 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2204,12 +2220,14 @@ void January2021()
 void February2021()
 {
      system ("cls");
-    system("color B0");
+    system("color 08");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\February2021.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- February2021 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2223,12 +2241,14 @@ void February2021()
 void March2021()
 {
      system ("cls");
-    system("color B0");
+    system("color F0");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\March2021.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- March2021 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2241,17 +2261,19 @@ void March2021()
 void April2021()
 {
      system ("cls");
-    system("color B0");
+    system("color D0");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\April2021.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- April2021 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
-        cout<<"\t\t\t\t\t\t-------------------------"<<endl;
-        cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
-        cout<<"\t\t\t\t\t\t-------------------------"<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\t\t\t\t\t\t--------------------------------"<<endl;
+        cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t\t|"<<"\t"<<endl;
+        cout<<"\t\t\t\t\t\t--------------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
-        cout<<"\t\t\t\t\t\t-------------------------"<<endl;
+        cout<<"\t\t\t\t\t\t--------------------------------"<<endl;
         cout<<endl;
     }
     rtrn();
@@ -2259,12 +2281,14 @@ void April2021()
 void May2021()
 {
      system ("cls");
-    system("color B0");
+    system("color 40");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\May2021.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- May2021 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2277,12 +2301,14 @@ void May2021()
 void June2021()
 {
      system ("cls");
-    system("color B0");
+    system("color 10");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\June2021.TXT");
+    cout<< "\n\n\t\t\t\t\t\t-------- June2021 --------";
+    cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
-        cout<<"\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
+        cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
@@ -2393,6 +2419,8 @@ void Instraction()
 
     cout<<"                                 `==========='    `==========='  "<<endl;
     system("color 5F");
-    Sleep(5000);
+    cout<<"\n\n\n\n\n";
+    system("pause");
+    //Sleep(5000);
     main_menu();
 }
