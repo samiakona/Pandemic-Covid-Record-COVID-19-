@@ -68,7 +68,6 @@ void Request();
 void variants_list();
 void Instraction();
 int main();
-int barl = 20;
 int P=1;
 void loadingBar()
 {
@@ -129,7 +128,7 @@ void main_menu()
 {
 
     system("cls");
-    system("COLOR  40");
+    system("COLOR  C0");
     int w;
     cout<<"\n\n\n\n\t\t\t\t\t\t    ==================="<<endl;
     cout<<"\t\t\t\t\t\t    ||   Main menu   ||"<<endl;
@@ -186,14 +185,14 @@ void variants_list()
     system("COLOR  5F");
     int n;
     std :: string line_;
-    ifstream file_("E:\\kona\\project\\Final\\COVID_Variants.TXT");
+    ifstream file_("E:\\kona\\project\\Final\\COVID_Variants.txt");
     while(getline(file_,line_))
     {
         std :: cout <<line_<<'\n';
     }
     file_.close();
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
-    cout<< "\t\t\t\t\t\t|   Press enter to back main menu    |\n";
+    cout<< "\t\t\t\t\t\t|   Press enter to back Main menu    |\n";
     cout<< "\t\t\t\t\t\t|____________________________________|\n";
     fflush(stdin);
     getchar();
@@ -230,9 +229,9 @@ void show()
 }
 void change()
 {
-    system("COLOR  40");
+    system("cls");
     system("color 0D");
-    cout << "\n\n\n\n\t\t\t\t\t****** Change penel ******\n";
+    cout << "\n\n\n\n\t\t\t\t\t   ****** Change Panel ******\n";
     cout << "\n\t\t\t\t\t\t 1.Covid Record.\n";
     cout << "\n\t\t\t\t\t\t 2.Back to Main menu.\n";
     cout << "\n\t\t\t\t\t\t 0.Log Out !!.\n";
@@ -244,8 +243,8 @@ void admin2()
     system("cls");
     int n;
     string a,b,c;
-    cout<<"\n\n\n\n\n\t\t\t\t\t\tPress '1' to go notification."<<endl;
-    cout<<"\n\t\t\t\t\t\tPress '2' for change data."<<endl;
+    cout<<"\n\n\n\n\n\t\t\t\t\t\tPress (1) to go notification."<<endl;
+    cout<<"\n\t\t\t\t\t\tPress (2) for change data."<<endl;
     cout<<"\n\t\t\t\t\t\tEnter Choice : ";
     cin>>n;
     switch(n)
@@ -254,7 +253,7 @@ void admin2()
     {
         system("cls");
         fstream myfile("Request.txt");
-        cout<<"\n\n\t\t\t\t\t\tNotification"<<endl;
+        cout<<"\n\n\t\t\t\t\t\t------------Notification------------"<<endl;
         cout<<"\n\n\n";
         while(myfile>>a>>b>>c)
         {
@@ -276,7 +275,7 @@ void admin2()
     }
     default:
     {
-        cout<<"Wrong input.Please enter again!!"<<endl;
+        cout<<"Wrong input. Please enter again!!"<<endl;
         system("pause");
         system("cls");
         admin2();
@@ -293,7 +292,7 @@ void Admin()
     char user[10],ch;
     int i;
     cout<<"\n\n\t\t\t\t\t     ==================="<<endl;
-    cout<<"\t\t\t\t\t     ||  Admin Penel  ||"<<endl;
+    cout<<"\t\t\t\t\t     ||  Admin Panel  ||"<<endl;
     cout<<"\t\t\t\t\t     ==================="<<endl;
     cout<<"\n\n\t\t\t\t\tEnter your username    : ";
     cin>>user;
@@ -357,26 +356,33 @@ void Admin()
 void Request()
 {
     system("cls");
+    system("COLOR  E0");
     char month[1000], data[10001], type[10001];
 
     ofstream myfile;
     myfile.open("Request.txt",ios :: app);
     cout << "\n\n\n\n\t\t\t\t\t********** Write your information **********";
-    cout << "\n\n\n\n\n\t\t\tEnter month name : ";
+    cout<< "\n\n\t\t\t\t\t\t Use this format :-";
+    cout<< "\n\n\t\t\t\t\t\t  _______________________________________";
+    cout<< "\n\t\t\t\t\t\t |month name | monthname-year.           |";
+    cout<< "\n\t\t\t\t\t\t |___________|___________________________|";
+    cout<< "\n\t\t\t\t\t\t |type name  | infected/deaths/recover.  |";
+    cout<< "\n\t\t\t\t\t\t |___________|___________________________|";
+    cout<< "\n\t\t\t\t\t\t |data       | amount of number.         |";
+    cout<< "\n\t\t\t\t\t\t |___________|___________________________|";
+    cout << "\n\n\n\t\t\t\t\t\t Enter month name : ";
     cin>>month;
     myfile<<month<<endl;
-    cout<<"\n\n\t\t\tEnter type name : ";
+    cout<<"\n\n\t\t\t\t\t\t Enter type name : ";
     cin>>type;
-   // cin.getline(data,100);
     myfile<<type<<endl;
-    cout<<"\n\n\t\t\tEnter data : ";
+    cout<<"\n\n\t\t\t\t\t\t Enter data : ";
     cin>>data;
-   // cin.getline(data,100);
     myfile<<data<<endl;
     system("cls");
     myfile.close();
 
-    cout<<"\n\n\n\n\n\n\t\t\t\t\tThankyou,Our administration will review it !!"<<endl;
+    cout<<"\n\n\n\n\n\n\t\t\t\t\tThank you,Our administration will review it !!"<<endl;
     system("pause");
     request2();
 
@@ -391,25 +397,28 @@ void request2()
 
     cout << "\n\t\t\t\tPress key: ";
     scanf("%d", &n);
-    if(n==1)
+    switch(n)
+    {
+    case 1:
     {
         system("cls");
         main_menu();
         fflush(stdin);
         getchar();
     }
-    else if(n==2)
+    case 2:
     {
         system("cls");
         continents();
         fflush(stdin);
         getchar();
     }
-    else if(n==0)
+    case 0:
     {
         exit(0);
+        break;
     }
-    else
+   default :
     {
         printf("\n\n\n\n\t\t\t\t\t Your choice is wrong! Try again.....\n");
         fflush(stdin);
@@ -417,13 +426,15 @@ void request2()
         system("cls");
         request2();
     }
+    }
+
 }
 
 void continents()
 {
     system ("cls");
     int p;
-    system("COLOR  4F");
+    system("COLOR  B0");
     cout << "\n\n\n\t\t\t\t\t****************CONTINENTS****************\n\n\n";
     cout << "\n\t\t\t\t\t\t 1.Asia\n";
     cout << "\n\t\t\t\t\t\t 2.Africa\n";
@@ -442,6 +453,7 @@ void continents()
     case 0:
     {
         exit(0);
+        break;
     }
     case 1:
     {
@@ -544,7 +556,7 @@ void Europe()
 void North_America()
 {
     system ("cls");
-    system("COLOR  B0");
+    system("COLOR  A0");
     int n;
     std :: string line_;
     ifstream file_("E:\\kona\\project\\Final\\Continent\\North_America.txt");
@@ -599,7 +611,7 @@ void countryview()
     cout<<"\t\t\t\t----------------------------------------------------------\n";
     cout<<"\n\t\t\t\t\t\t\t 1.National\n";
     cout<<"\n\t\t\t\t\t\t\t 2.International\n";
-    cout<<"\n\t\t\t\t\t\t\t 3.Main menu\n";
+    cout<<"\n\t\t\t\t\t\t\t 3.Back to Main menu\n";
     cout<<"\n\t\t\t\t\t\t\t Exit press 0: ";
     cout<<"\n\n\t\t\t\t----------------------------------------------------------\n";
     cout <<"\n\t\t\t\t\t\t\tEnter your choice: ";
@@ -762,7 +774,7 @@ void  Hospital_Information()
         printf("%s",ch);
     }
     fclose(fp);
-    cout<<"\n\t\t\t\t\t\tBack to National information penel press 1: \n";
+    cout<<"\n\t\t\t\t\t\tBack to National information panel press 1: \n";
     cout<<"\n\t\t\t\t\t\tGo to Catagory press 2: \n";
     cout<<"\n\t\t\t\t\t\tEnter Choice : ";
     scanf("%d", &n);
@@ -1003,7 +1015,7 @@ void admin_Covid_Record()
     cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
     cout<< "\t\t\t\t\t\t| 16 |     June2021                |\n";
     cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
-    cout<< "\t\t\t\t\t\t| 17 |     Back to Change penel    |\n";
+    cout<< "\t\t\t\t\t\t| 17 |     Back to Change panel    |\n";
     cout<< "\t\t\t\t\t\t|____|_____________________________|\n";
     cout<< "\t\t\t\t\t\t|        Exit press 0.             |\n";
     cout<< "\t\t\t\t\t\t|__________________________________|\n";
@@ -1011,6 +1023,11 @@ void admin_Covid_Record()
     scanf("%d", &choice);
     switch(choice)
     {
+    case 0:
+    {
+        exit(0);
+        break;
+    }
     case 1:
     {
         March_2020();
@@ -1080,19 +1097,19 @@ void admin_Covid_Record()
     }
     case 14:
     {
-        April2021();
+        April_2021();
         break;
 
     }
     case 15:
     {
-        May2021();
+        May_2021();
         break;
 
     }
     case 16:
     {
-        June2021();
+        June_2021();
         break;
 
     }
@@ -1121,7 +1138,7 @@ void March_2020()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\March2020.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\March2020.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1134,31 +1151,35 @@ void March_2020()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<< "\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<< "\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<< "\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\March2020.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\March2020.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\March2020.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\March2020.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1176,7 +1197,7 @@ void April_2020()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\April2020.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\April2020.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1189,32 +1210,35 @@ void April_2020()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl
-        <<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<< "\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<< "\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<< "\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\April2020.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\April2020.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\April2020.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\April2020.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1231,7 +1255,7 @@ void May_2020()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\May2020.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\May2020.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1244,32 +1268,35 @@ void May_2020()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl
-        <<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<< "\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<< "\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<< "\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\May2020.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\May2020.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\May2020.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\May2020.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1287,7 +1314,7 @@ void June_2020()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\June2020.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\June2020.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1300,32 +1327,35 @@ void June_2020()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl
-        <<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<< "\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<< "\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<< "\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\June2020.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\June2020.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\June2020.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\June2020.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1343,7 +1373,7 @@ void July_2020()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\July2020.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\July2020.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1356,31 +1386,35 @@ void July_2020()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<< "\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<< "\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<< "\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\July2020.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\July2020.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\July2020.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\July2020.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1398,7 +1432,7 @@ void August_2020()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\August2020.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\August2020.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1411,31 +1445,35 @@ void August_2020()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<< "\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<< "\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<< "\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\August2020.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\August2020.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\August2020.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\August2020.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1453,7 +1491,7 @@ void September_2020()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\September2020.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\September2020.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1466,31 +1504,35 @@ void September_2020()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<<"\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<<"\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<<"\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\September2020.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\September2020.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\September2020.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\September2020.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1507,7 +1549,7 @@ void October_2020()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\October2020.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\October2020.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1520,31 +1562,35 @@ void October_2020()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<< "\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<< "\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<< "\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\October2020.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\October2020.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\October2020.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\October2020.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1561,7 +1607,7 @@ void November_2020()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\November2020.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\November2020.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1574,31 +1620,35 @@ void November_2020()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<< "\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<< "\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<< "\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\November2020.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\November2020.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\November2020.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\November2020.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1615,7 +1665,7 @@ void December_2020()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\December2020.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\December2020.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1628,31 +1678,35 @@ void December_2020()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<<"\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<<"\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<<"\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\December2020.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\December2020.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\December2020.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\December2020.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1669,7 +1723,7 @@ void January_2021()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\January2021.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\January2021.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1682,31 +1736,35 @@ void January_2021()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<<"\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<<"\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<<"\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\January2021.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\January2021.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\January2021.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\January2021.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1723,7 +1781,7 @@ void February_2021()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\February2021.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\February2021.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1736,31 +1794,35 @@ void February_2021()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<<"\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<<"\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<<"\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\February2021.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\February2021.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\February2021.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\February2021.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1777,7 +1839,7 @@ void March_2021()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\March2021.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\March2021.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1790,31 +1852,35 @@ void March_2021()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<< "\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<< "\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<< "\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\March2021.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\March2021.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\March2021.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\March2021.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1832,7 +1898,7 @@ void April_2021()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\April2021.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\April2021.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1845,31 +1911,35 @@ void April_2021()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<< "\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<< "\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<< "\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\April2021.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\April2021.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\April2021.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\April2021.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1886,7 +1956,7 @@ void May_2021()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\May2021.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\May2021.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1899,31 +1969,35 @@ void May_2021()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<< "\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<< "\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<< "\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\May2021.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\May2021.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\May2021.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\May2021.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1941,7 +2015,7 @@ void June_2021()
     int n;
     string line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11;
     fstream file;
-    file.open("E:\\kona\\project\\Final\\Countryview\\June2021.TXT",ios::in);
+    file.open("E:\\kona\\project\\Final\\Countryview\\June2021.txt",ios::in);
     getline(file,line1);
     getline(file,line2);
     getline(file,line3);
@@ -1954,31 +2028,35 @@ void June_2021()
     getline(file,line10);
     getline(file,line11);
     file.close();
-    cout<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
-    cout<<"enter the line you want to change: ";
+    cout<<"\t"<<line1<<endl<<"\t"<<line2<<endl<<"\t"<<line3<<endl<<"\t"<<line4<<endl<<"\t"<<line5<<endl<<"\t"<<line6<<endl<<"\t"<<line7<<endl<<"\t"<<line8<<endl<<"\t"<<line9<<endl<<"\t"<<line10<<endl<<"\t"<<line11<<endl;
+    cout<<"\tEnter the line you want to change: ";
     cin>>n;
     cin.ignore();
     if(n==1)
     {
+        cout<< "\t";
         getline(cin,line3);
     }
     if(n==2)
     {
+        cout<< "\t";
         getline(cin,line7);
     }
     if(n==3)
     {
+        cout<< "\t";
         getline(cin,line11);
     }
     ofstream file2;
-    file2.open("E:\\kona\\project\\Final\\June2021.TXT");
+    file2.open("E:\\kona\\project\\Final\\Countryview\\June2021.txt");
     file2<<line1<<endl<<line2<<endl<<line3<<endl<<line4<<endl<<line5<<endl<<line6<<endl<<line7<<endl<<line8<<endl<<line9<<endl<<line10<<endl<<line11<<endl;
     file2.close();
     cout<<endl<<endl;
     string name;
-    ifstream read("E:\\kona\\project\\Final\\June2021.TXT");
+    ifstream read("E:\\kona\\project\\Final\\Countryview\\June2021.txt");
     while(getline(read,name))
     {
+        cout<< "\t";
         cout<<name<<endl;
     }
     cout<< "\n\t\t\t\t\t\t ____________________________________\n";
@@ -1992,7 +2070,7 @@ void June_2021()
 
 void March2020()
 {
-     system ("cls");
+    system ("cls");
     system("color 30");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\March2020.TXT");
@@ -2035,7 +2113,7 @@ void April2020()
 
 void May2020()
 {
-     system ("cls");
+    system ("cls");
     system("color 50");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\May2020.TXT");
@@ -2056,7 +2134,7 @@ void May2020()
 }
 void June2020()
 {
-     system ("cls");
+    system ("cls");
     system("color 60");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\June2020.TXT");
@@ -2076,7 +2154,7 @@ void June2020()
 }
 void July2020()
 {
-     system ("cls");
+    system ("cls");
     system("color 70");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
     fstream file("E:\\kona\\project\\Final\\Countryview\\July2020.TXT");
@@ -2117,10 +2195,10 @@ void August2020()
 }
 void September2020()
 {
-     system ("cls");
+    system ("cls");
     system("color 60");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
-    fstream file("E:\\kona\\project\\Final\\Countryview\\September2020.TXT");
+    fstream file("E:\\kona\\project\\Final\\Countryview\\September2020.txt");
     cout<< "\n\n\t\t\t\t\t\t------ September2020 ------";
     cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
@@ -2138,10 +2216,10 @@ void September2020()
 }
 void October2020()
 {
-     system ("cls");
+    system ("cls");
     system("color E0");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
-    fstream file("E:\\kona\\project\\Final\\Countryview\\October2020.TXT");
+    fstream file("E:\\kona\\project\\Final\\Countryview\\October2020.txt");
     cout<< "\n\n\t\t\t\t\t\t-------- October2020 --------";
     cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
@@ -2159,10 +2237,10 @@ void October2020()
 }
 void November2020()
 {
-     system ("cls");
+    system ("cls");
     system("color 90");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
-    fstream file("E:\\kona\\project\\Final\\Countryview\\November2020.TXT");
+    fstream file("E:\\kona\\project\\Final\\Countryview\\November2020.txt");
     cout<< "\n\n\t\t\t\t\t\t-------- November2020 --------";
     cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
@@ -2182,7 +2260,7 @@ void December2020()
     system ("cls");
     system("color 03");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
-    fstream file("E:\\kona\\project\\Final\\Countryview\\December2020.TXT");
+    fstream file("E:\\kona\\project\\Final\\Countryview\\December2020.txt");
     cout<< "\n\n\t\t\t\t\t\t-------- December2020 --------";
     cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
@@ -2199,10 +2277,10 @@ void December2020()
 }
 void January2021()
 {
-     system ("cls");
+    system ("cls");
     system("color 04");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
-    fstream file("E:\\kona\\project\\Final\\Countryview\\January2021.TXT");
+    fstream file("E:\\kona\\project\\Final\\Countryview\\January2021.txt");
     cout<< "\n\n\t\t\t\t\t\t-------- January2021 --------";
     cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
@@ -2219,10 +2297,10 @@ void January2021()
 }
 void February2021()
 {
-     system ("cls");
+    system ("cls");
     system("color 08");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
-    fstream file("E:\\kona\\project\\Final\\Countryview\\February2021.TXT");
+    fstream file("E:\\kona\\project\\Final\\Countryview\\February2021.txt");
     cout<< "\n\n\t\t\t\t\t\t-------- February2021 --------";
     cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
@@ -2240,10 +2318,10 @@ void February2021()
 }
 void March2021()
 {
-     system ("cls");
+    system ("cls");
     system("color F0");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
-    fstream file("E:\\kona\\project\\Final\\Countryview\\March2021.TXT");
+    fstream file("E:\\kona\\project\\Final\\Countryview\\March2021.txt");
     cout<< "\n\n\t\t\t\t\t\t-------- March2021 --------";
     cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
@@ -2260,30 +2338,30 @@ void March2021()
 }
 void April2021()
 {
-     system ("cls");
+    system ("cls");
     system("color D0");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
-    fstream file("E:\\kona\\project\\Final\\Countryview\\April2021.TXT");
+    fstream file("E:\\kona\\project\\Final\\Countryview\\April2021.txt");
     cout<< "\n\n\t\t\t\t\t\t-------- April2021 --------";
     cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
     {
         cout<<"\n\n\t\t\t\t\t\t"<<a1<<"."<<a2<<endl;
-        cout<<"\t\t\t\t\t\t--------------------------------"<<endl;
-        cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t\t|"<<"\t"<<endl;
-        cout<<"\t\t\t\t\t\t--------------------------------"<<endl;
-        cout<<"\t\t\t\t\t\t"<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
-        cout<<"\t\t\t\t\t\t--------------------------------"<<endl;
-        cout<<endl;
+        cout<<"\t\t\t\t\t\t-------------------------"<<endl;
+        cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
+        cout<<"\t\t\t\t\t\t-------------------------"<<endl;
+        cout<<"\t\t\t\t\t\t"<<"|\t  "<<c1<<"    \t|"<<"\t"<<endl;
+        cout<<"\t\t\t\t\t\t-------------------------"<<endl;
+        cout<< endl;
     }
     rtrn();
 }
 void May2021()
 {
-     system ("cls");
-    system("color 40");
+    system ("cls");
+    system("color C0");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
-    fstream file("E:\\kona\\project\\Final\\Countryview\\May2021.TXT");
+    fstream file("E:\\kona\\project\\Final\\Countryview\\May2021.txt");
     cout<< "\n\n\t\t\t\t\t\t-------- May2021 --------";
     cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
@@ -2300,10 +2378,10 @@ void May2021()
 }
 void June2021()
 {
-     system ("cls");
-    system("color 10");
+    system ("cls");
+    system("color E0");
     char a1[1000],a2[1000],b1[1000],b2[1000],b3[1000],b4[2000],c1[100],c2[100],c3[100],c4[100];
-    fstream file("E:\\kona\\project\\Final\\Countryview\\June2021.TXT");
+    fstream file("E:\\kona\\project\\Final\\Countryview\\June2021.txt");
     cout<< "\n\n\t\t\t\t\t\t-------- June2021 --------";
     cout<< "\n\t\t\t\t\t    -----------------------------------";
     while(file>>a1>>a2>>b1>>c1)
@@ -2312,7 +2390,7 @@ void June2021()
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<"\t\t\t\t\t\t"<<"|\t  "<<b1<<" \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
-        cout<<"\t\t\t\t\t\t"<<"|\t  "<<c1<<"\t\t|"<<"\t"<<endl;
+        cout<<"\t\t\t\t\t\t"<<"|\t  "<<c1<<"     \t|"<<"\t"<<endl;
         cout<<"\t\t\t\t\t\t-------------------------"<<endl;
         cout<<endl;
     }
@@ -2320,8 +2398,8 @@ void June2021()
 }
 void rtrn()
 {
-    cout<< "\n\n\n\t\t\t\tBack to month list press ' 1 '\n";
-    cout<< "\t\t\t\tBack to National information panel press ' 2 '\n";
+    cout<< "\n\n\n\t\t\t\tBack to month list press (1)\n";
+    cout<< "\t\t\t\tBack to National information panel press (2)\n";
     cout<< "\t\t\t\tPress key: ";
     int n;
     cin>>n;
